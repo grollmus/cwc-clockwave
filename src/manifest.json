@@ -1,0 +1,44 @@
+{
+	"$schema": "./CWC_manifest_Schema.json",
+	"mver": "1.2.0",
+	"control": {
+		"identity": {
+			"name": "ClockWaves",
+			"version": "1.0",
+			"displayname": "ClockWaves",
+			"icon": "./assets/logo.ico",
+			"type": "guid://3D36ADA6-CF40-47E4-B88D-BD4D41F5E3BA",
+			"start": "./control/index.html"
+		},
+		"metadata": {
+			"author": "Grollmus GmbH",
+			"keywords": [
+				"Clock",
+				"Waves",
+                "Art"
+			]
+		},
+		"contracts": {
+			"api": {
+				"methods": {
+					
+				},
+				"events": {
+					
+				},
+				"properties": {
+					"GaugeBackColor": {
+						"$ref": "#/control/types/Color",
+						"default": 4294967295
+					}
+				}
+			}
+		},
+		"types": {
+			"Color": {
+				"$id": "http://tia.siemens.com/wincc-unified/types/s/color",
+				"type": "number"
+			}
+		}
+	}
+}

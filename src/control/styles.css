@@ -1,0 +1,24 @@
+:root {
+  --svg-fill: black;
+  --svg-stroke: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: white;
+  }
+  a { color: #90e8df; }
+  a:visited{ color: #aed5fc; }
+  :root {
+  --svg-fill: white;
+  --svg-stroke: white;
+}
+}
+
+.banner {
+  width: 100%; 
+  height: 150px; 
+  display: block; 
+  overflow: hidden;
+}
