@@ -3,7 +3,8 @@ $7zipExecutable = "C:\Program Files\7-Zip\7z.exe" # path to 7zip executable
 $jsonFile     = "../src/manifest.json"
 $sourceFolder = "../src/*"
 # $targetPath   = "C:\UnifiedKurs\CWC_Waves\UserFiles\CustomControls"  # target path TIA Portal project
-$targetPath = "C:\Program Files\Siemens\Automation\Portal V19\Data\Hmi\CustomControls" # target path TIA Portal program folder
+# $targetPath = "C:\Program Files\Siemens\Automation\Portal V19\Data\Hmi\CustomControls" # target path TIA Portal program folder
+$targetPath = "../release";
 
 # === read JSON and extract GUID ===
 if (-Not (Test-Path $jsonFile)) {
