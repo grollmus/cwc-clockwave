@@ -10,3 +10,10 @@ With the powershell build script `build/build.ps1` the custom web control is gen
 
 ### Configuration
 Place the custom web control by drag and dropping into an WinCC Unified Picture. Adjust the screen window in terms of borders and size according to your needs.
+The property `WaveColor` describes the hue tint of the waves. WinCC interprets the color as an integer, which is converted in the custom web control to a RGB color. From this RGB the hue is converted and used as a base color tint for the waves. The saturation and lightness are fixed values, so only the hue component is controlled by the `WaveColor` property.
+
+## Learning aspects
+- Structure of the custom web control
+- Building of the custom web control
+- Using the WebCC.start() object and its callback function
+- Transfering a color property between TIA Portal and the javascript application

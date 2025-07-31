@@ -122,11 +122,6 @@ const svgNS = "http://www.w3.org/2000/svg";
 
 let col = anyColor()
 let hue = parseInt(col.match(/hsl\((\d+),/)[1], 10);
-let rgb = toColor("#FF0000");
-hue = rgbToHue(rgb);
-const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-const lightness = prefersDark ? 70 : 30;
-col = `hsl(${hue}, 30%, ${lightness}%)`;
 
 document.querySelectorAll("svg.waves").forEach(svg => {
   updateWaves(svg);
@@ -134,19 +129,12 @@ document.querySelectorAll("svg.waves").forEach(svg => {
   svg.setAttribute("preserveAspectRatio", "none");
 });
 
-setInterval(() => {
-  getTime();
-  document.querySelectorAll("span[data-level]").forEach(span => {
-    const level = parseInt(span.dataset.level, 10);
-    span.textContent = " ("+time[level]+")";
-  });
-}, 1000);
-
 function setProperty(data) {
   console.log('onPropertyChanged ' + data.key);  // uncomment this line to check whether data is incoming in the browser console from WinCC Unified
   switch (data.key) {
     case 'WaveColor':
-      rgb = toColor(data.value);
+      let rgb = toColor(data.value);
+      hue = rgbToHue(rgb);
       break;
   }
 }
@@ -155,10 +143,9 @@ function toColor(num) {
   num >>>= 0;
   var b = num & 0xFF,
     g = (num & 0xFF00) >>> 8,
-    r = (num & 0xFF0000) >>> 16,
-    a = ((num & 0xFF000000) >>> 24) / 255;
+    r = (num & 0xFF0000) >>> 16
 
-  return 'rgba(' + [r, g, b, a].join(',') + ')';
+  return 'rgb(' + [r, g, b,].join(',') + ')';
 }
 
 WebCC.start(
@@ -179,12 +166,12 @@ WebCC.start(
   // contract (see also manifest.json)
   {
     // Methods
-    methods: [],
+    methods: {},
     // Events
     events: [],
     // Properties
     properties: {
-      WaveColor: 4294967295,
+      WaveColor: 4294967295
     }
   },
   // placeholder to include additional Unified dependencies (not used in this example)

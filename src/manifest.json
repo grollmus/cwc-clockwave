@@ -27,7 +27,7 @@
 					
 				},
 				"properties": {
-					"GaugeBackColor": {
+					"WaveColor": {
 						"$ref": "#/control/types/Color",
 						"default": 4294967295
 					}
